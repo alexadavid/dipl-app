@@ -70,11 +70,6 @@ class ThesesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thesis_params
-<<<<<<< HEAD
-      params.require(:thesis).permit(:name, :abstract, :language, 
-        :defended, :faculty_id, :author_attributes => [:firstname, :surname])
-=======
       params.require(:thesis).permit(:name, :abstract, :language, :defended, :faculty_id, :author_attributes => [:firstname, :surname])
->>>>>>> task with rails, without authentication task
     end
 end
