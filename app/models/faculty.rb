@@ -1,4 +1,5 @@
 class Faculty < ActiveRecord::Base
-	validates :name, uniqueness: true, presence: true
-	has_many :theses
+  has_many :thesises
+
+  validates :name, presence: true, uniqueness: true
 end

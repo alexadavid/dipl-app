@@ -1,24 +1,28 @@
 %h1 Listing theses
 
-%table.table.table-striped
-  %tr
-    %th Name
-    %th Faculty
-    %th Language
-    %th Defended
-    %th
-    %th
-    %th
-
-  - @theses.each do |thesis|
+%table.table.table-stripped
+  %thead
     %tr
-      %td= thesis.name
-      %td= thesis.faculty ? thesis.faculty.name : ''
-      %td= thesis.language
-      %td= thesis.defended
-      %td= link_to 'Show', thesis
-      %td= link_to 'Edit', edit_thesis_path(thesis)
-      %td= link_to 'Destroy', thesis, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Author
+      %th Faculty
+      %th Language
+      %th Defended
+      %th
+      %th
+      %th
+
+  %tbody
+    - @theses.each do |thesis|
+      %tr
+        %td= thesis.name
+        %td= thesis.author.full_name
+        %td= thesis.faculty.name
+        %td= thesis.language
+        %td= thesis.defended
+        %td{:class => 'btn btn-sm btn-primary'}= link_to 'Show', thesis
+        %td{:class => 'btn btn-sm btn-secondary'}= link_to 'Edit', edit_thesis_path(thesis)
+        %td{:class => 'btn btn-sm btn-danger'}= link_to 'Destroy', thesis, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 = link_to 'New Thesis', new_thesis_path, class:'btn btn-primary'

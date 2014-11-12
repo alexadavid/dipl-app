@@ -1,4 +1,4 @@
-= form_for @thesis do |f|
+= form_for @thesis, {:html => {:class => "form form-horizontal"}} do |f|
   - if @thesis.errors.any?
     #error_explanation
       %h2= "#{pluralize(@thesis.errors.count, "error")} prohibited this thesis from being saved:"
@@ -6,28 +6,28 @@
         - @thesis.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .field.form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :class => 'form-control'
   .field
     = f.fields_for :author do |fa|
-      .field
+      .field.form-group
         = fa.label :firstname
-        = fa.text_field :firstname
-      .field
+        = fa.text_field :firstname, :class => 'form-control'
+      .field.form-group
         = fa.label :surname
-        = fa.text_field :surname
-  .field
+        = fa.text_field :surname, :class => 'form-control'
+  .field.form-group
     = f.label :abstract
-    = f.text_area :abstract
-  .field
+    = f.text_area :abstract, :class => 'form-control'
+  .field.form-group
     = f.label :language
-    = f.text_field :language
-  .field
+    = f.text_field :language, :class => 'form-control'
+  .field.form-group
     = f.label :defended
     = f.date_select :defended
-  .field
+  .field.form-group
     = f.label :faculty
     = f.select :faculty_id, faculties
-  .actions
-    = f.submit 'Save'
+  .actions.form-group
+    = f.submit 'Save', :class => 'btn btn-primary'

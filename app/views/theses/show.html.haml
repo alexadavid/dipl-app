@@ -19,6 +19,14 @@
   %b Faculty:
   = @thesis.faculty ? @thesis.faculty.name : ''
 
+%p
+  %b Faculty:
+  = @thesis.faculty.name
+
+%p
+  %b Author:
+  = @thesis.author.full_name
+
 = link_to 'Edit', edit_thesis_path(@thesis)
 \|
 = link_to 'Back', theses_path
